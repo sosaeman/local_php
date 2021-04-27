@@ -1,7 +1,9 @@
 <?php
+session_start();
+
 $title = $_POST['title'];
 $content = $_POST['content'];
-$author = $_POST['author'];
+$author = $_SESSION['author'];
 //to fix Undefined array key use ??"
 
 //connect db
@@ -16,7 +18,7 @@ if(!$db){
 else{echo"<h1><b> connection successfull</b></h1>";}
 
 //insert form data to db
-$query= "INSERT INTO post (title, content, author) 
+$query= "INSERT INTO post (title, content, author)
 VALUES ('$title','$content','$author')";
 
 //show query result
@@ -28,7 +30,7 @@ if($db->query($query)== TRUE)
         date_default_timezone_set("America/New_York");
         echo "<br>Data inserted succesfully on ". date("d-m-y")." at ".date("h:i:a");
     }
-else{ echo "data not inserted".mysql_error();}
+
 
 header('location:https://localhost/local_php/index_post.php');
 // add to db

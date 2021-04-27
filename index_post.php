@@ -32,10 +32,10 @@
           <label for="content" class="form-label">Message</label>
           <textarea name="content" class="form-control" id="content" cols="30" rows="10"></textarea>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="author" class="form-label">author</label>
           <input type="text" class="form-control" id="author" name="author" >
-        </div>
+        </div> -->
         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
      
