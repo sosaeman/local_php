@@ -9,7 +9,11 @@
  if($db == TRUE){
     echo'connected';
  }
+ else{
+   echo "<script>alert('login fail try again');</script>";
+    header('Refresh: 0; url=https://localhost/local_php/signup_page.php');
+     }
 
-    header('location:https://localhost/local_php/index_post.php');
+    header('location:https://localhost/local_php/login_page.php');
    
 ?>

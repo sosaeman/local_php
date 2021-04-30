@@ -4,11 +4,12 @@ session_start();
 $title = $_POST['title'];
 $content = $_POST['content'];
 $author = $_SESSION['author'];
+$name= $_POST['name'];
 //to fix Undefined array key use ??"
-
 //connect db
 $db=mysqli_connect("localhost","root","","php-mysql");
-
+$getname="SELECT name FROM author WHERE '$author' == id";
+$myname=mysqli_query($db,$getname);
 //check connection
 if(!$db){
     echo "<h1><b> not connected</b></h1>";    
@@ -16,13 +17,15 @@ if(!$db){
        
         }
 else{echo"<h1><b> connection successfull</b></h1>";}
+        echo '<pre>';
+        print_r($myname);
+        echo '</pre>';
 
 //insert form data to db
-$query= "INSERT INTO post (title, content, author)
+$query= "INSERT INTO post (title, content,author)
 VALUES ('$title','$content','$author')";
 
-//show query result
-echo $query;
+
 
 //check data insertion and add to db
 if($db->query($query)== TRUE)
